@@ -14,10 +14,10 @@ const readerWithCallback = (file, callback) => {
 
 // As a promise
 const readFilePromise = util.promisify(fs.readFile);
-const readerWithPromise = (file) => {
-  return readFilePromise(file)
+const readerWithPromise = (file) => {   
+  return readFilePromise(file)      
     .then(contents => contents.toString().trim())
-    .catch(error => error);
+    .catch(error => new Error('this is broke'); // throw('this is broke')
 };
 
-module.exports = { readerWithCallback, readerWithPromise };
+module.exports = { readerWithCallback, readerWithPromise };//export mean this is can test
