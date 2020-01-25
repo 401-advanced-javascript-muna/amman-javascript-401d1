@@ -1,23 +1,24 @@
 'use strict';
 
 const fs = require('fs');
-const util = require('util')
+const util = require('util')  
 
-const reader = require('./lib/reader.js');
+const reader = require('./lib/reader.js');   // acsess to reader.js
 
-let file = `${__dirname}/data/file.txt`;
+let file = `${__dirname}/data/file.txt`; // absolute bath 
 
 // DEMO Part 1 -- do all of this inline, in this file, to demonstrate all 3 ways to read a file
 
 // Callback Style
 fs.readFile(file, (err, data) => {
   if (err) { throw err; }
-  console.log('Callback', data.toString().trim());
+  console.log('Callback', data.toString().trim());// data is buffer .trim() to remove space
 });
 
 // Promise Style
 // First, turn the normal fs.readFile into a promise
-let readFilePromise = util.promisify(fs.readFile)
+let readFilePromise = util.promisify(fs.readFile) //to use utility function :promsify function ,promsify s.t to use it
+// take the contint of (fs.readFile) 
 
 // then, call it like any other promise
 readFilePromise(file)
